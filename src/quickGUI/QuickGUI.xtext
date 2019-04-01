@@ -1,0 +1,38 @@
+grammar quickGUI.QuickGUI with org.eclipse.xtext.common.Terminals
+
+generate quickGUI "http://www.QuickGUI.quickGUI"
+
+GUI:
+	
+	title = STRING? 
+	('('layout = Layout')')+
+	
+;
+	
+Element:
+	(Button | TextBox)
+;
+ 
+Layout:
+	(Horizontal | Vertical) '('elements += Element*')'
+;
+
+Horizontal:
+	{Horizontal}("h" | "horizontal")
+;
+
+Vertical:
+	{Vertical}("v" | "vertical")
+;
+
+Button returns Element:
+	{Button} ("btn" | "button")
+	name=STRING
+	//method=STRING
+;
+
+TextBox returns Element:
+	{TextBox}("tb" | "textbox")
+	name=STRING
+;
+
