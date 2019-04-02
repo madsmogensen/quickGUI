@@ -66,12 +66,13 @@ public class QuickGUIFactoryImpl extends EFactoryImpl implements QuickGUIFactory
     switch (eClass.getClassifierID())
     {
       case QuickGUIPackage.GUI: return createGUI();
-      case QuickGUIPackage.ELEMENT: return createElement();
       case QuickGUIPackage.LAYOUT: return createLayout();
       case QuickGUIPackage.HORIZONTAL: return createHorizontal();
       case QuickGUIPackage.VERTICAL: return createVertical();
+      case QuickGUIPackage.ELEMENT: return createElement();
       case QuickGUIPackage.BUTTON: return createButton();
       case QuickGUIPackage.TEXT_BOX: return createTextBox();
+      case QuickGUIPackage.INPUT_BOX: return createInputBox();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -87,18 +88,6 @@ public class QuickGUIFactoryImpl extends EFactoryImpl implements QuickGUIFactory
   {
     GUIImpl gui = new GUIImpl();
     return gui;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Element createElement()
-  {
-    ElementImpl element = new ElementImpl();
-    return element;
   }
 
   /**
@@ -143,6 +132,18 @@ public class QuickGUIFactoryImpl extends EFactoryImpl implements QuickGUIFactory
    * @generated
    */
   @Override
+  public Element createElement()
+  {
+    ElementImpl element = new ElementImpl();
+    return element;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Button createButton()
   {
     ButtonImpl button = new ButtonImpl();
@@ -159,6 +160,18 @@ public class QuickGUIFactoryImpl extends EFactoryImpl implements QuickGUIFactory
   {
     TextBoxImpl textBox = new TextBoxImpl();
     return textBox;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public InputBox createInputBox()
+  {
+    InputBoxImpl inputBox = new InputBoxImpl();
+    return inputBox;
   }
 
   /**

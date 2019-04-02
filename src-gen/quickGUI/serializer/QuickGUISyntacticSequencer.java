@@ -23,6 +23,7 @@ public class QuickGUISyntacticSequencer extends AbstractSyntacticSequencer {
 	protected QuickGUIGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Button_BtnKeyword_1_0_or_ButtonKeyword_1_1;
 	protected AbstractElementAlias match_Horizontal_HKeyword_1_0_or_HorizontalKeyword_1_1;
+	protected AbstractElementAlias match_InputBox_IbKeyword_1_0_or_InputBoxKeyword_1_1;
 	protected AbstractElementAlias match_TextBox_TbKeyword_1_0_or_TextboxKeyword_1_1;
 	protected AbstractElementAlias match_Vertical_VKeyword_1_0_or_VerticalKeyword_1_1;
 	
@@ -31,6 +32,7 @@ public class QuickGUISyntacticSequencer extends AbstractSyntacticSequencer {
 		grammarAccess = (QuickGUIGrammarAccess) access;
 		match_Button_BtnKeyword_1_0_or_ButtonKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getButtonAccess().getBtnKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getButtonAccess().getButtonKeyword_1_1()));
 		match_Horizontal_HKeyword_1_0_or_HorizontalKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getHorizontalAccess().getHKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getHorizontalAccess().getHorizontalKeyword_1_1()));
+		match_InputBox_IbKeyword_1_0_or_InputBoxKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getInputBoxAccess().getIbKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getInputBoxAccess().getInputBoxKeyword_1_1()));
 		match_TextBox_TbKeyword_1_0_or_TextboxKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getTextBoxAccess().getTbKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getTextBoxAccess().getTextboxKeyword_1_1()));
 		match_Vertical_VKeyword_1_0_or_VerticalKeyword_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getVerticalAccess().getVKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getVerticalAccess().getVerticalKeyword_1_1()));
 	}
@@ -51,6 +53,8 @@ public class QuickGUISyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Button_BtnKeyword_1_0_or_ButtonKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Horizontal_HKeyword_1_0_or_HorizontalKeyword_1_1.equals(syntax))
 				emit_Horizontal_HKeyword_1_0_or_HorizontalKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_InputBox_IbKeyword_1_0_or_InputBoxKeyword_1_1.equals(syntax))
+				emit_InputBox_IbKeyword_1_0_or_InputBoxKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_TextBox_TbKeyword_1_0_or_TextboxKeyword_1_1.equals(syntax))
 				emit_TextBox_TbKeyword_1_0_or_TextboxKeyword_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Vertical_VKeyword_1_0_or_VerticalKeyword_1_1.equals(syntax))
@@ -80,6 +84,17 @@ public class QuickGUISyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) (rule start)
 	 */
 	protected void emit_Horizontal_HKeyword_1_0_or_HorizontalKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'ib' | 'inputBox'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) name=STRING
+	 */
+	protected void emit_InputBox_IbKeyword_1_0_or_InputBoxKeyword_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

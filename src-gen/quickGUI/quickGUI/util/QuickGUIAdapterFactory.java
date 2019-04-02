@@ -81,11 +81,6 @@ public class QuickGUIAdapterFactory extends AdapterFactoryImpl
         return createGUIAdapter();
       }
       @Override
-      public Adapter caseElement(Element object)
-      {
-        return createElementAdapter();
-      }
-      @Override
       public Adapter caseLayout(Layout object)
       {
         return createLayoutAdapter();
@@ -101,6 +96,11 @@ public class QuickGUIAdapterFactory extends AdapterFactoryImpl
         return createVerticalAdapter();
       }
       @Override
+      public Adapter caseElement(Element object)
+      {
+        return createElementAdapter();
+      }
+      @Override
       public Adapter caseButton(Button object)
       {
         return createButtonAdapter();
@@ -109,6 +109,11 @@ public class QuickGUIAdapterFactory extends AdapterFactoryImpl
       public Adapter caseTextBox(TextBox object)
       {
         return createTextBoxAdapter();
+      }
+      @Override
+      public Adapter caseInputBox(InputBox object)
+      {
+        return createInputBoxAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -143,21 +148,6 @@ public class QuickGUIAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createGUIAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link quickGUI.quickGUI.Element <em>Element</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see quickGUI.quickGUI.Element
-   * @generated
-   */
-  public Adapter createElementAdapter()
   {
     return null;
   }
@@ -208,6 +198,21 @@ public class QuickGUIAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link quickGUI.quickGUI.Element <em>Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see quickGUI.quickGUI.Element
+   * @generated
+   */
+  public Adapter createElementAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link quickGUI.quickGUI.Button <em>Button</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -233,6 +238,21 @@ public class QuickGUIAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTextBoxAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link quickGUI.quickGUI.InputBox <em>Input Box</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see quickGUI.quickGUI.InputBox
+   * @generated
+   */
+  public Adapter createInputBoxAdapter()
   {
     return null;
   }

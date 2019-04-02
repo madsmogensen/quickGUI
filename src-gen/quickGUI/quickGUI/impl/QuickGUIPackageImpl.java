@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import quickGUI.quickGUI.Button;
 import quickGUI.quickGUI.Element;
 import quickGUI.quickGUI.Horizontal;
+import quickGUI.quickGUI.InputBox;
 import quickGUI.quickGUI.Layout;
 import quickGUI.quickGUI.QuickGUIFactory;
 import quickGUI.quickGUI.QuickGUIPackage;
@@ -33,13 +34,6 @@ public class QuickGUIPackageImpl extends EPackageImpl implements QuickGUIPackage
    * @generated
    */
   private EClass guiEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass elementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,6 +61,13 @@ public class QuickGUIPackageImpl extends EPackageImpl implements QuickGUIPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass elementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass buttonEClass = null;
 
   /**
@@ -75,6 +76,13 @@ public class QuickGUIPackageImpl extends EPackageImpl implements QuickGUIPackage
    * @generated
    */
   private EClass textBoxEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass inputBoxEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -178,28 +186,6 @@ public class QuickGUIPackageImpl extends EPackageImpl implements QuickGUIPackage
    * @generated
    */
   @Override
-  public EClass getElement()
-  {
-    return elementEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getElement_Name()
-  {
-    return (EAttribute)elementEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getLayout()
   {
     return layoutEClass;
@@ -244,6 +230,39 @@ public class QuickGUIPackageImpl extends EPackageImpl implements QuickGUIPackage
    * @generated
    */
   @Override
+  public EClass getElement()
+  {
+    return elementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getElement_Type()
+  {
+    return (EReference)elementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getElement_Name()
+  {
+    return (EAttribute)elementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getButton()
   {
     return buttonEClass;
@@ -258,6 +277,28 @@ public class QuickGUIPackageImpl extends EPackageImpl implements QuickGUIPackage
   public EClass getTextBox()
   {
     return textBoxEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getInputBox()
+  {
+    return inputBoxEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getInputBox_RequireCheck()
+  {
+    return (EAttribute)inputBoxEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -295,9 +336,6 @@ public class QuickGUIPackageImpl extends EPackageImpl implements QuickGUIPackage
     createEAttribute(guiEClass, GUI__TITLE);
     createEReference(guiEClass, GUI__LAYOUT);
 
-    elementEClass = createEClass(ELEMENT);
-    createEAttribute(elementEClass, ELEMENT__NAME);
-
     layoutEClass = createEClass(LAYOUT);
     createEReference(layoutEClass, LAYOUT__ELEMENTS);
 
@@ -305,9 +343,16 @@ public class QuickGUIPackageImpl extends EPackageImpl implements QuickGUIPackage
 
     verticalEClass = createEClass(VERTICAL);
 
+    elementEClass = createEClass(ELEMENT);
+    createEReference(elementEClass, ELEMENT__TYPE);
+    createEAttribute(elementEClass, ELEMENT__NAME);
+
     buttonEClass = createEClass(BUTTON);
 
     textBoxEClass = createEClass(TEXT_BOX);
+
+    inputBoxEClass = createEClass(INPUT_BOX);
+    createEAttribute(inputBoxEClass, INPUT_BOX__REQUIRE_CHECK);
   }
 
   /**
@@ -343,14 +388,12 @@ public class QuickGUIPackageImpl extends EPackageImpl implements QuickGUIPackage
     verticalEClass.getESuperTypes().add(this.getLayout());
     buttonEClass.getESuperTypes().add(this.getElement());
     textBoxEClass.getESuperTypes().add(this.getElement());
+    inputBoxEClass.getESuperTypes().add(this.getElement());
 
     // Initialize classes and features; add operations and parameters
     initEClass(guiEClass, quickGUI.quickGUI.GUI.class, "GUI", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getGUI_Title(), ecorePackage.getEString(), "title", null, 0, 1, quickGUI.quickGUI.GUI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getGUI_Layout(), this.getLayout(), null, "layout", null, 0, 1, quickGUI.quickGUI.GUI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(layoutEClass, Layout.class, "Layout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getLayout_Elements(), this.getElement(), null, "elements", null, 0, -1, Layout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -359,9 +402,16 @@ public class QuickGUIPackageImpl extends EPackageImpl implements QuickGUIPackage
 
     initEClass(verticalEClass, Vertical.class, "Vertical", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getElement_Type(), this.getElement(), null, "type", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(buttonEClass, Button.class, "Button", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(textBoxEClass, TextBox.class, "TextBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(inputBoxEClass, InputBox.class, "InputBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getInputBox_RequireCheck(), ecorePackage.getEString(), "requireCheck", null, 0, 1, InputBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

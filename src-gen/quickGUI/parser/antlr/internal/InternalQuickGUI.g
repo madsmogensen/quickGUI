@@ -122,43 +122,7 @@ ruleGUI returns [EObject current=null]
 			{
 				newLeafNode(otherlv_3, grammarAccess.getGUIAccess().getRightParenthesisKeyword_1_2());
 			}
-		)+
-	)
-;
-
-// Entry rule entryRuleElement
-entryRuleElement returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getElementRule()); }
-	iv_ruleElement=ruleElement
-	{ $current=$iv_ruleElement.current; }
-	EOF;
-
-// Rule Element
-ruleElement returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		{
-			newCompositeNode(grammarAccess.getElementAccess().getButtonParserRuleCall_0());
-		}
-		this_Button_0=ruleButton
-		{
-			$current = $this_Button_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getElementAccess().getTextBoxParserRuleCall_1());
-		}
-		this_TextBox_1=ruleTextBox
-		{
-			$current = $this_TextBox_1.current;
-			afterParserOrEnumRuleCall();
-		}
+		)
 	)
 ;
 
@@ -301,6 +265,76 @@ ruleVertical returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleElement
+entryRuleElement returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getElementRule()); }
+	iv_ruleElement=ruleElement
+	{ $current=$iv_ruleElement.current; }
+	EOF;
+
+// Rule Element
+ruleElement returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getElementAccess().getTypeButtonParserRuleCall_0_0());
+				}
+				lv_type_0_1=ruleButton
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getElementRule());
+					}
+					set(
+						$current,
+						"type",
+						lv_type_0_1,
+						"quickGUI.QuickGUI.Button");
+					afterParserOrEnumRuleCall();
+				}
+				    |
+				{
+					newCompositeNode(grammarAccess.getElementAccess().getTypeTextBoxParserRuleCall_0_1());
+				}
+				lv_type_0_2=ruleTextBox
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getElementRule());
+					}
+					set(
+						$current,
+						"type",
+						lv_type_0_2,
+						"quickGUI.QuickGUI.TextBox");
+					afterParserOrEnumRuleCall();
+				}
+				    |
+				{
+					newCompositeNode(grammarAccess.getElementAccess().getTypeInputBoxParserRuleCall_0_2());
+				}
+				lv_type_0_3=ruleInputBox
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getElementRule());
+					}
+					set(
+						$current,
+						"type",
+						lv_type_0_3,
+						"quickGUI.QuickGUI.InputBox");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
 // Entry rule entryRuleButton
 entryRuleButton returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getButtonRule()); }
@@ -406,6 +440,88 @@ ruleTextBox returns [EObject current=null]
 						lv_name_3_0,
 						"org.eclipse.xtext.common.Terminals.STRING");
 				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleInputBox
+entryRuleInputBox returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getInputBoxRule()); }
+	iv_ruleInputBox=ruleInputBox
+	{ $current=$iv_ruleInputBox.current; }
+	EOF;
+
+// Rule InputBox
+ruleInputBox returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getInputBoxAccess().getInputBoxAction_0(),
+					$current);
+			}
+		)
+		(
+			otherlv_1='ib'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getInputBoxAccess().getIbKeyword_1_0());
+			}
+			    |
+			otherlv_2='inputBox'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getInputBoxAccess().getInputBoxKeyword_1_1());
+			}
+		)
+		(
+			(
+				lv_name_3_0=RULE_STRING
+				{
+					newLeafNode(lv_name_3_0, grammarAccess.getInputBoxAccess().getNameSTRINGTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getInputBoxRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_3_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+		(
+			(
+				(
+					lv_requireCheck_4_1='true'
+					{
+						newLeafNode(lv_requireCheck_4_1, grammarAccess.getInputBoxAccess().getRequireCheckTrueKeyword_3_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getInputBoxRule());
+						}
+						setWithLastConsumed($current, "requireCheck", lv_requireCheck_4_1, null);
+					}
+					    |
+					lv_requireCheck_4_2='false'
+					{
+						newLeafNode(lv_requireCheck_4_2, grammarAccess.getInputBoxAccess().getRequireCheckFalseKeyword_3_0_1());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getInputBoxRule());
+						}
+						setWithLastConsumed($current, "requireCheck", lv_requireCheck_4_2, null);
+					}
+				)
 			)
 		)
 	)

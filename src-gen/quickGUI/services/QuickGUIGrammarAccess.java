@@ -35,10 +35,10 @@ public class QuickGUIGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
 		
 		//GUI:
-		//	title=STRING? ('(' layout=Layout ')')+;
+		//	title=STRING? ('(' layout=Layout ')');
 		@Override public ParserRule getRule() { return rule; }
 		
-		//title=STRING? ('(' layout=Layout ')')+
+		//title=STRING? ('(' layout=Layout ')')
 		public Group getGroup() { return cGroup; }
 		
 		//title=STRING?
@@ -47,7 +47,7 @@ public class QuickGUIGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getTitleSTRINGTerminalRuleCall_0_0() { return cTitleSTRINGTerminalRuleCall_0_0; }
 		
-		//('(' layout=Layout ')')+
+		//'(' layout=Layout ')'
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//'('
@@ -61,25 +61,6 @@ public class QuickGUIGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_1_2() { return cRightParenthesisKeyword_1_2; }
-	}
-	public class ElementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "quickGUI.QuickGUI.Element");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cButtonParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cTextBoxParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
-		//Element:
-		//	Button | TextBox;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//Button | TextBox
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//Button
-		public RuleCall getButtonParserRuleCall_0() { return cButtonParserRuleCall_0; }
-		
-		//TextBox
-		public RuleCall getTextBoxParserRuleCall_1() { return cTextBoxParserRuleCall_1; }
 	}
 	public class LayoutElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "quickGUI.QuickGUI.Layout");
@@ -174,6 +155,33 @@ public class QuickGUIGrammarAccess extends AbstractGrammarElementFinder {
 		//"vertical"
 		public Keyword getVerticalKeyword_1_1() { return cVerticalKeyword_1_1; }
 	}
+	public class ElementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "quickGUI.QuickGUI.Element");
+		private final Assignment cTypeAssignment = (Assignment)rule.eContents().get(1);
+		private final Alternatives cTypeAlternatives_0 = (Alternatives)cTypeAssignment.eContents().get(0);
+		private final RuleCall cTypeButtonParserRuleCall_0_0 = (RuleCall)cTypeAlternatives_0.eContents().get(0);
+		private final RuleCall cTypeTextBoxParserRuleCall_0_1 = (RuleCall)cTypeAlternatives_0.eContents().get(1);
+		private final RuleCall cTypeInputBoxParserRuleCall_0_2 = (RuleCall)cTypeAlternatives_0.eContents().get(2);
+		
+		//Element:
+		//	type=(Button | TextBox | InputBox);
+		@Override public ParserRule getRule() { return rule; }
+		
+		//type=(Button | TextBox | InputBox)
+		public Assignment getTypeAssignment() { return cTypeAssignment; }
+		
+		//(Button | TextBox | InputBox)
+		public Alternatives getTypeAlternatives_0() { return cTypeAlternatives_0; }
+		
+		//Button
+		public RuleCall getTypeButtonParserRuleCall_0_0() { return cTypeButtonParserRuleCall_0_0; }
+		
+		//TextBox
+		public RuleCall getTypeTextBoxParserRuleCall_0_1() { return cTypeTextBoxParserRuleCall_0_1; }
+		
+		//InputBox
+		public RuleCall getTypeInputBoxParserRuleCall_0_2() { return cTypeInputBoxParserRuleCall_0_2; }
+	}
 	public class ButtonElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "quickGUI.QuickGUI.Button");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -185,9 +193,7 @@ public class QuickGUIGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameSTRINGTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		
 		//Button Element:
-		//	{Button} ("btn" | "button") name=STRING
-		//	//method=STRING
-		//;
+		//	{Button} ("btn" | "button") name=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Button} ("btn" | "button") name=STRING
@@ -246,15 +252,68 @@ public class QuickGUIGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getNameSTRINGTerminalRuleCall_2_0() { return cNameSTRINGTerminalRuleCall_2_0; }
 	}
+	public class InputBoxElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "quickGUI.QuickGUI.InputBox");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cInputBoxAction_0 = (Action)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Keyword cIbKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
+		private final Keyword cInputBoxKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameSTRINGTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Assignment cRequireCheckAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Alternatives cRequireCheckAlternatives_3_0 = (Alternatives)cRequireCheckAssignment_3.eContents().get(0);
+		private final Keyword cRequireCheckTrueKeyword_3_0_0 = (Keyword)cRequireCheckAlternatives_3_0.eContents().get(0);
+		private final Keyword cRequireCheckFalseKeyword_3_0_1 = (Keyword)cRequireCheckAlternatives_3_0.eContents().get(1);
+		
+		//InputBox Element:
+		//	{InputBox} ("ib" | "inputBox") name=STRING
+		//	requireCheck=('true' | 'false');
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{InputBox} ("ib" | "inputBox") name=STRING requireCheck=('true' | 'false')
+		public Group getGroup() { return cGroup; }
+		
+		//{InputBox}
+		public Action getInputBoxAction_0() { return cInputBoxAction_0; }
+		
+		//"ib" | "inputBox"
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//"ib"
+		public Keyword getIbKeyword_1_0() { return cIbKeyword_1_0; }
+		
+		//"inputBox"
+		public Keyword getInputBoxKeyword_1_1() { return cInputBoxKeyword_1_1; }
+		
+		//name=STRING
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_2_0() { return cNameSTRINGTerminalRuleCall_2_0; }
+		
+		//requireCheck=('true' | 'false')
+		public Assignment getRequireCheckAssignment_3() { return cRequireCheckAssignment_3; }
+		
+		//('true' | 'false')
+		public Alternatives getRequireCheckAlternatives_3_0() { return cRequireCheckAlternatives_3_0; }
+		
+		//'true'
+		public Keyword getRequireCheckTrueKeyword_3_0_0() { return cRequireCheckTrueKeyword_3_0_0; }
+		
+		//'false'
+		public Keyword getRequireCheckFalseKeyword_3_0_1() { return cRequireCheckFalseKeyword_3_0_1; }
+	}
 	
 	
 	private final GUIElements pGUI;
-	private final ElementElements pElement;
 	private final LayoutElements pLayout;
 	private final HorizontalElements pHorizontal;
 	private final VerticalElements pVertical;
+	private final ElementElements pElement;
 	private final ButtonElements pButton;
 	private final TextBoxElements pTextBox;
+	private final InputBoxElements pInputBox;
 	
 	private final Grammar grammar;
 	
@@ -266,12 +325,13 @@ public class QuickGUIGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pGUI = new GUIElements();
-		this.pElement = new ElementElements();
 		this.pLayout = new LayoutElements();
 		this.pHorizontal = new HorizontalElements();
 		this.pVertical = new VerticalElements();
+		this.pElement = new ElementElements();
 		this.pButton = new ButtonElements();
 		this.pTextBox = new TextBoxElements();
+		this.pInputBox = new InputBoxElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -302,23 +362,13 @@ public class QuickGUIGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//GUI:
-	//	title=STRING? ('(' layout=Layout ')')+;
+	//	title=STRING? ('(' layout=Layout ')');
 	public GUIElements getGUIAccess() {
 		return pGUI;
 	}
 	
 	public ParserRule getGUIRule() {
 		return getGUIAccess().getRule();
-	}
-	
-	//Element:
-	//	Button | TextBox;
-	public ElementElements getElementAccess() {
-		return pElement;
-	}
-	
-	public ParserRule getElementRule() {
-		return getElementAccess().getRule();
 	}
 	
 	//Layout:
@@ -351,10 +401,18 @@ public class QuickGUIGrammarAccess extends AbstractGrammarElementFinder {
 		return getVerticalAccess().getRule();
 	}
 	
+	//Element:
+	//	type=(Button | TextBox | InputBox);
+	public ElementElements getElementAccess() {
+		return pElement;
+	}
+	
+	public ParserRule getElementRule() {
+		return getElementAccess().getRule();
+	}
+	
 	//Button Element:
-	//	{Button} ("btn" | "button") name=STRING
-	//	//method=STRING
-	//;
+	//	{Button} ("btn" | "button") name=STRING;
 	public ButtonElements getButtonAccess() {
 		return pButton;
 	}
@@ -371,6 +429,17 @@ public class QuickGUIGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getTextBoxRule() {
 		return getTextBoxAccess().getRule();
+	}
+	
+	//InputBox Element:
+	//	{InputBox} ("ib" | "inputBox") name=STRING
+	//	requireCheck=('true' | 'false');
+	public InputBoxElements getInputBoxAccess() {
+		return pInputBox;
+	}
+	
+	public ParserRule getInputBoxRule() {
+		return getInputBoxAccess().getRule();
 	}
 	
 	//terminal ID:

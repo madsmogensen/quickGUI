@@ -80,13 +80,6 @@ public class QuickGUISwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case QuickGUIPackage.ELEMENT:
-      {
-        Element element = (Element)theEObject;
-        T result = caseElement(element);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case QuickGUIPackage.LAYOUT:
       {
         Layout layout = (Layout)theEObject;
@@ -110,6 +103,13 @@ public class QuickGUISwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case QuickGUIPackage.ELEMENT:
+      {
+        Element element = (Element)theEObject;
+        T result = caseElement(element);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case QuickGUIPackage.BUTTON:
       {
         Button button = (Button)theEObject;
@@ -123,6 +123,14 @@ public class QuickGUISwitch<T> extends Switch<T>
         TextBox textBox = (TextBox)theEObject;
         T result = caseTextBox(textBox);
         if (result == null) result = caseElement(textBox);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case QuickGUIPackage.INPUT_BOX:
+      {
+        InputBox inputBox = (InputBox)theEObject;
+        T result = caseInputBox(inputBox);
+        if (result == null) result = caseElement(inputBox);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -142,22 +150,6 @@ public class QuickGUISwitch<T> extends Switch<T>
    * @generated
    */
   public T caseGUI(GUI object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Element</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseElement(Element object)
   {
     return null;
   }
@@ -211,6 +203,22 @@ public class QuickGUISwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseElement(Element object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Button</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -238,6 +246,22 @@ public class QuickGUISwitch<T> extends Switch<T>
    * @generated
    */
   public T caseTextBox(TextBox object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Input Box</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Input Box</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInputBox(InputBox object)
   {
     return null;
   }

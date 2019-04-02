@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link quickGUI.quickGUI.Element#getType <em>Type</em>}</li>
  *   <li>{@link quickGUI.quickGUI.Element#getName <em>Name</em>}</li>
  * </ul>
  *
@@ -23,6 +24,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Element extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Type</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type</em>' containment reference.
+   * @see #setType(Element)
+   * @see quickGUI.quickGUI.QuickGUIPackage#getElement_Type()
+   * @model containment="true"
+   * @generated
+   */
+  Element getType();
+
+  /**
+   * Sets the value of the '{@link quickGUI.quickGUI.Element#getType <em>Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type</em>' containment reference.
+   * @see #getType()
+   * @generated
+   */
+  void setType(Element value);
+
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->

@@ -3,16 +3,11 @@ grammar quickGUI.QuickGUI with org.eclipse.xtext.common.Terminals
 generate quickGUI "http://www.QuickGUI.quickGUI"
 
 GUI:
-	
 	title = STRING? 
-	('('layout = Layout')')+
+	('('layout = Layout')')
 	
 ;
-	
-Element:
-	(Button | TextBox)
-;
- 
+
 Layout:
 	(Horizontal | Vertical) '('elements += Element*')'
 ;
@@ -24,11 +19,14 @@ Horizontal:
 Vertical:
 	{Vertical}("v" | "vertical")
 ;
+	
+Element:
+	type=(Button | TextBox | InputBox)
+;
 
 Button returns Element:
 	{Button} ("btn" | "button")
 	name=STRING
-	//method=STRING
 ;
 
 TextBox returns Element:
@@ -36,3 +34,8 @@ TextBox returns Element:
 	name=STRING
 ;
 
+InputBox returns Element:
+	{InputBox}("ib" | "inputBox")
+	name=STRING
+	requireCheck=('true'|'false')
+;

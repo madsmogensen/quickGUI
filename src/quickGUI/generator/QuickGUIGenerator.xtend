@@ -32,13 +32,14 @@ class QuickGUIGenerator extends AbstractGenerator {
 		//get input
 		val gui = resource.allContents.next
 		val guiClass = gui as quickGUI.quickGUI.GUI
-		val layoutClass = guiClass.getLayout() as quickGUI.quickGUI.Layout
-		println(layoutClass.getElements())
-		val btnClass = layoutClass.getElements().get(0) as quickGUI.quickGUI.Element
-		println(btnClass.getName())
+		
+		//val layoutClass = guiClass.getLayout() as quickGUI.quickGUI.Layout
+		//println(layoutClass.getElements())
+		//val btnClass = layoutClass.getElements().get(0) as quickGUI.quickGUI.Element
+		//println(btnClass.getType())
 		
 		fsa.generateFile(
-		"QuickGUI.java",compileGUI(btnClass)
+		"QuickGUI.java",compileGUI(guiClass)
 		)
 		
 		/*
@@ -50,10 +51,58 @@ class QuickGUIGenerator extends AbstractGenerator {
 		*/
 	}
 	
-	def compileGUI(Element button)
+	def compileGUI(GUI gui)
+		//private void «button.getName»Submit(){
+		//	//INSERT YOUR CODE HERE
+		//}
+		//val layout = gui.getLayout() as quickGUI.quickGUI.Layout
+		
 		'''
-		private void «button.getName»Submit(){
-			//INSERT YOUR CODE HERE
+		import javafx.application.Application;
+		import javafx.stage.Stage;
+		import javafx.scene.Scene;
+		import javafx.scene.layout.VBox;
+		import javafx.scene.control.Button;
+		import javafx.scene.control.TextField;
+		import javafx.scene.text.Text;
+
+		public class QuickGUI extends Application{
+		
+			@Override
+			public void start(Stage primaryStage){
+		
+			VBox root = new VBox();
+			«val layout = gui.getLayout() as quickGUI.quickGUI.Layout»
+			«FOR e:layout.getElements()»
+				«compileElement(e)»
+			«ENDFOR»
+			
+			primaryStage.setScene(new Scene(root));
+			primaryStage.show();
+
+			}
+			
+			public static void main(String[] args){
+				launch(args);
+			}
 		}
 		'''
+		
+	def compileElement(Element e)'''
+		
+		«IF e.getType().getClass().toString().equals("class quickGUI.quickGUI.impl.ButtonImpl")»
+			Button «e.getType().getName()» = new Button("«e.getType().getName()»");
+			«e.getType().getName()».setOnAction((a) -> {
+				//YOUR CODE HERE FOR BUTTON «e.getType().getName()»
+			});
+		«ELSEIF e.getType().getClass().toString().equals("class quickGUI.quickGUI.impl.TextBoxImpl")»
+			Text «e.getType().getName()» = new Text("«e.getType().getName()»");
+		«ELSEIF e.getType().getClass().toString().equals("class quickGUI.quickGUI.impl.InputBoxImpl")»
+			TextField «e.getType().getName()» = new TextField();
+			«e.getType().getName()».setPromptText("«e.getType().getName()»");
+		«ENDIF»
+			root.getChildren().add(«e.getType().getName()»);
+		'''
+		
+		
 }

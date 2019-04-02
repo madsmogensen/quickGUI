@@ -33,15 +33,6 @@ public interface QuickGUIFactory extends EFactory
   GUI createGUI();
 
   /**
-   * Returns a new object of class '<em>Element</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Element</em>'.
-   * @generated
-   */
-  Element createElement();
-
-  /**
    * Returns a new object of class '<em>Layout</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -69,6 +60,15 @@ public interface QuickGUIFactory extends EFactory
   Vertical createVertical();
 
   /**
+   * Returns a new object of class '<em>Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Element</em>'.
+   * @generated
+   */
+  Element createElement();
+
+  /**
    * Returns a new object of class '<em>Button</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -85,6 +85,15 @@ public interface QuickGUIFactory extends EFactory
    * @generated
    */
   TextBox createTextBox();
+
+  /**
+   * Returns a new object of class '<em>Input Box</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Input Box</em>'.
+   * @generated
+   */
+  InputBox createInputBox();
 
   /**
    * Returns the package supported by this factory.

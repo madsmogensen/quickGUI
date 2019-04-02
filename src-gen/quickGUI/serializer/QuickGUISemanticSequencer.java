@@ -15,8 +15,10 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import quickGUI.quickGUI.Button;
+import quickGUI.quickGUI.Element;
 import quickGUI.quickGUI.GUI;
 import quickGUI.quickGUI.Horizontal;
+import quickGUI.quickGUI.InputBox;
 import quickGUI.quickGUI.QuickGUIPackage;
 import quickGUI.quickGUI.TextBox;
 import quickGUI.quickGUI.Vertical;
@@ -39,6 +41,9 @@ public class QuickGUISemanticSequencer extends AbstractDelegatingSemanticSequenc
 			case QuickGUIPackage.BUTTON:
 				sequence_Button(context, (Button) semanticObject); 
 				return; 
+			case QuickGUIPackage.ELEMENT:
+				sequence_Element(context, (Element) semanticObject); 
+				return; 
 			case QuickGUIPackage.GUI:
 				sequence_GUI(context, (GUI) semanticObject); 
 				return; 
@@ -52,6 +57,9 @@ public class QuickGUISemanticSequencer extends AbstractDelegatingSemanticSequenc
 					return; 
 				}
 				else break;
+			case QuickGUIPackage.INPUT_BOX:
+				sequence_InputBox(context, (InputBox) semanticObject); 
+				return; 
 			case QuickGUIPackage.TEXT_BOX:
 				sequence_TextBox(context, (TextBox) semanticObject); 
 				return; 
@@ -72,7 +80,6 @@ public class QuickGUISemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Contexts:
-	 *     Element returns Button
 	 *     Button returns Button
 	 *
 	 * Constraint:
@@ -91,10 +98,22 @@ public class QuickGUISemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Contexts:
+	 *     Element returns Element
+	 *
+	 * Constraint:
+	 *     (type=Button | type=TextBox | type=InputBox)
+	 */
+	protected void sequence_Element(ISerializationContext context, Element semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     GUI returns GUI
 	 *
 	 * Constraint:
-	 *     (title=STRING? layout=Layout+)
+	 *     (title=STRING? layout=Layout)
 	 */
 	protected void sequence_GUI(ISerializationContext context, GUI semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -127,6 +146,18 @@ public class QuickGUISemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Contexts:
+	 *     InputBox returns InputBox
+	 *
+	 * Constraint:
+	 *     (name=STRING (requireCheck='true' | requireCheck='false'))
+	 */
+	protected void sequence_InputBox(ISerializationContext context, InputBox semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Layout returns Vertical
 	 *
 	 * Constraint:
@@ -139,7 +170,6 @@ public class QuickGUISemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Contexts:
-	 *     Element returns TextBox
 	 *     TextBox returns TextBox
 	 *
 	 * Constraint:

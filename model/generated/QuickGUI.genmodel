@@ -10,15 +10,19 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QuickGUI.ecore#//GUI/title"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QuickGUI.ecore#//GUI/layout"/>
     </genClasses>
-    <genClasses ecoreClass="QuickGUI.ecore#//Element">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QuickGUI.ecore#//Element/name"/>
-    </genClasses>
     <genClasses ecoreClass="QuickGUI.ecore#//Layout">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QuickGUI.ecore#//Layout/elements"/>
     </genClasses>
     <genClasses ecoreClass="QuickGUI.ecore#//Horizontal"/>
     <genClasses ecoreClass="QuickGUI.ecore#//Vertical"/>
+    <genClasses ecoreClass="QuickGUI.ecore#//Element">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QuickGUI.ecore#//Element/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QuickGUI.ecore#//Element/name"/>
+    </genClasses>
     <genClasses ecoreClass="QuickGUI.ecore#//Button"/>
     <genClasses ecoreClass="QuickGUI.ecore#//TextBox"/>
+    <genClasses ecoreClass="QuickGUI.ecore#//InputBox">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QuickGUI.ecore#//InputBox/requireCheck"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

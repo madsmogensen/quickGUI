@@ -95,34 +95,6 @@ public interface QuickGUIPackage extends EPackage
   int GUI_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link quickGUI.quickGUI.impl.ElementImpl <em>Element</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see quickGUI.quickGUI.impl.ElementImpl
-   * @see quickGUI.quickGUI.impl.QuickGUIPackageImpl#getElement()
-   * @generated
-   */
-  int ELEMENT = 1;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ELEMENT__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>Element</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ELEMENT_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link quickGUI.quickGUI.impl.LayoutImpl <em>Layout</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -130,7 +102,7 @@ public interface QuickGUIPackage extends EPackage
    * @see quickGUI.quickGUI.impl.QuickGUIPackageImpl#getLayout()
    * @generated
    */
-  int LAYOUT = 2;
+  int LAYOUT = 1;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -158,7 +130,7 @@ public interface QuickGUIPackage extends EPackage
    * @see quickGUI.quickGUI.impl.QuickGUIPackageImpl#getHorizontal()
    * @generated
    */
-  int HORIZONTAL = 3;
+  int HORIZONTAL = 2;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -186,7 +158,7 @@ public interface QuickGUIPackage extends EPackage
    * @see quickGUI.quickGUI.impl.QuickGUIPackageImpl#getVertical()
    * @generated
    */
-  int VERTICAL = 4;
+  int VERTICAL = 3;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -207,6 +179,43 @@ public interface QuickGUIPackage extends EPackage
   int VERTICAL_FEATURE_COUNT = LAYOUT_FEATURE_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link quickGUI.quickGUI.impl.ElementImpl <em>Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see quickGUI.quickGUI.impl.ElementImpl
+   * @see quickGUI.quickGUI.impl.QuickGUIPackageImpl#getElement()
+   * @generated
+   */
+  int ELEMENT = 4;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELEMENT__TYPE = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELEMENT__NAME = 1;
+
+  /**
+   * The number of structural features of the '<em>Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELEMENT_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link quickGUI.quickGUI.impl.ButtonImpl <em>Button</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -215,6 +224,15 @@ public interface QuickGUIPackage extends EPackage
    * @generated
    */
   int BUTTON = 5;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BUTTON__TYPE = ELEMENT__TYPE;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -245,6 +263,15 @@ public interface QuickGUIPackage extends EPackage
   int TEXT_BOX = 6;
 
   /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEXT_BOX__TYPE = ELEMENT__TYPE;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -261,6 +288,52 @@ public interface QuickGUIPackage extends EPackage
    * @ordered
    */
   int TEXT_BOX_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link quickGUI.quickGUI.impl.InputBoxImpl <em>Input Box</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see quickGUI.quickGUI.impl.InputBoxImpl
+   * @see quickGUI.quickGUI.impl.QuickGUIPackageImpl#getInputBox()
+   * @generated
+   */
+  int INPUT_BOX = 7;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_BOX__TYPE = ELEMENT__TYPE;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_BOX__NAME = ELEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Require Check</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_BOX__REQUIRE_CHECK = ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Input Box</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_BOX_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
 
 
   /**
@@ -294,27 +367,6 @@ public interface QuickGUIPackage extends EPackage
    * @generated
    */
   EReference getGUI_Layout();
-
-  /**
-   * Returns the meta object for class '{@link quickGUI.quickGUI.Element <em>Element</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Element</em>'.
-   * @see quickGUI.quickGUI.Element
-   * @generated
-   */
-  EClass getElement();
-
-  /**
-   * Returns the meta object for the attribute '{@link quickGUI.quickGUI.Element#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see quickGUI.quickGUI.Element#getName()
-   * @see #getElement()
-   * @generated
-   */
-  EAttribute getElement_Name();
 
   /**
    * Returns the meta object for class '{@link quickGUI.quickGUI.Layout <em>Layout</em>}'.
@@ -358,6 +410,38 @@ public interface QuickGUIPackage extends EPackage
   EClass getVertical();
 
   /**
+   * Returns the meta object for class '{@link quickGUI.quickGUI.Element <em>Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Element</em>'.
+   * @see quickGUI.quickGUI.Element
+   * @generated
+   */
+  EClass getElement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link quickGUI.quickGUI.Element#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see quickGUI.quickGUI.Element#getType()
+   * @see #getElement()
+   * @generated
+   */
+  EReference getElement_Type();
+
+  /**
+   * Returns the meta object for the attribute '{@link quickGUI.quickGUI.Element#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see quickGUI.quickGUI.Element#getName()
+   * @see #getElement()
+   * @generated
+   */
+  EAttribute getElement_Name();
+
+  /**
    * Returns the meta object for class '{@link quickGUI.quickGUI.Button <em>Button</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -376,6 +460,27 @@ public interface QuickGUIPackage extends EPackage
    * @generated
    */
   EClass getTextBox();
+
+  /**
+   * Returns the meta object for class '{@link quickGUI.quickGUI.InputBox <em>Input Box</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Input Box</em>'.
+   * @see quickGUI.quickGUI.InputBox
+   * @generated
+   */
+  EClass getInputBox();
+
+  /**
+   * Returns the meta object for the attribute '{@link quickGUI.quickGUI.InputBox#getRequireCheck <em>Require Check</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Require Check</em>'.
+   * @see quickGUI.quickGUI.InputBox#getRequireCheck()
+   * @see #getInputBox()
+   * @generated
+   */
+  EAttribute getInputBox_RequireCheck();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -427,24 +532,6 @@ public interface QuickGUIPackage extends EPackage
     EReference GUI__LAYOUT = eINSTANCE.getGUI_Layout();
 
     /**
-     * The meta object literal for the '{@link quickGUI.quickGUI.impl.ElementImpl <em>Element</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see quickGUI.quickGUI.impl.ElementImpl
-     * @see quickGUI.quickGUI.impl.QuickGUIPackageImpl#getElement()
-     * @generated
-     */
-    EClass ELEMENT = eINSTANCE.getElement();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ELEMENT__NAME = eINSTANCE.getElement_Name();
-
-    /**
      * The meta object literal for the '{@link quickGUI.quickGUI.impl.LayoutImpl <em>Layout</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -483,6 +570,32 @@ public interface QuickGUIPackage extends EPackage
     EClass VERTICAL = eINSTANCE.getVertical();
 
     /**
+     * The meta object literal for the '{@link quickGUI.quickGUI.impl.ElementImpl <em>Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see quickGUI.quickGUI.impl.ElementImpl
+     * @see quickGUI.quickGUI.impl.QuickGUIPackageImpl#getElement()
+     * @generated
+     */
+    EClass ELEMENT = eINSTANCE.getElement();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ELEMENT__TYPE = eINSTANCE.getElement_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ELEMENT__NAME = eINSTANCE.getElement_Name();
+
+    /**
      * The meta object literal for the '{@link quickGUI.quickGUI.impl.ButtonImpl <em>Button</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -501,6 +614,24 @@ public interface QuickGUIPackage extends EPackage
      * @generated
      */
     EClass TEXT_BOX = eINSTANCE.getTextBox();
+
+    /**
+     * The meta object literal for the '{@link quickGUI.quickGUI.impl.InputBoxImpl <em>Input Box</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see quickGUI.quickGUI.impl.InputBoxImpl
+     * @see quickGUI.quickGUI.impl.QuickGUIPackageImpl#getInputBox()
+     * @generated
+     */
+    EClass INPUT_BOX = eINSTANCE.getInputBox();
+
+    /**
+     * The meta object literal for the '<em><b>Require Check</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INPUT_BOX__REQUIRE_CHECK = eINSTANCE.getInputBox_RequireCheck();
 
   }
 
